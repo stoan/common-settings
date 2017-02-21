@@ -10,6 +10,7 @@
         <module>common-settings-persistence</module>
 		<module>common-settings-service</module>
 		<module>common-settings-web</module>
+		<module>common-settings-core</module>
 	</modules>
     <packaging>pom</packaging>
 
@@ -49,10 +50,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mobile</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

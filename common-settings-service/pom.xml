@@ -11,5 +11,13 @@
 
     <artifactId>common-settings-service</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.housescent.common-settings</groupId>
+            <artifactId>common-settings-persistence</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common-settings-web</artifactId>
+    <artifactId>common-settings-core</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.housescent.common-settings</groupId>
-            <artifactId>common-settings-service</artifactId>
+            <artifactId>common-settings-web</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
