@@ -26,4 +26,6 @@ public interface LocalSettingService extends SettingService {
     void deleteApplication(String applicationName);
 
     void updateApplication(String applicationName, String description);
+
+    Application getApplication(String applicationName);
 }

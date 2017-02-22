@@ -1,6 +1,7 @@
 package com.housescent.commonsettings.service.local;
 
 import com.housescent.commonsettings.persistence.entities.Application;
+import com.housescent.commonsettings.persistence.entities.Property;
 import com.housescent.commonsettings.service.ServiceApplicationConfig;
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,7 +26,8 @@ public class LocalSettingServiceTest {
 
     @Test
     public void getPropertiesForApplication() throws Exception {
-
+        List<Property> properties = localSettingService.getPropertiesForApplication("TestAppName");
+        Assert.assertTrue(properties.size() == 3);
     }
 
     @Test
@@ -83,5 +85,6 @@ public class LocalSettingServiceTest {
 
         Assert.assertEquals("description22", application.getDescription());
     }
+
 
 }
