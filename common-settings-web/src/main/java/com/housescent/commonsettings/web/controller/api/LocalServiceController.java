@@ -1,0 +1,72 @@
+package com.housescent.commonsettings.web.controller.api;
+
+import com.housescent.commonsettings.persistence.entities.Application;
+import com.housescent.commonsettings.persistence.entities.Property;
+import com.housescent.commonsettings.service.local.LocalSettingService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+/**
+ * Created by s983620 on 22/02/2017.
+ */
+@RestController
+@RequestMapping("/admin/")
+public class LocalServiceController {
+
+    private LocalSettingService localSettingService;
+
+    public LocalServiceController(LocalSettingService localSettingService) {
+        this.localSettingService = localSettingService;
+    }
+
+    @RequestMapping(value = "fetchPropertiesForApplication", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Property> getPropertiesForApplication(@RequestParam(value = "applicationName") String applicationName) {
+        return localSettingService.getPropertiesForApplication(applicationName);
+    }
+
+    @RequestMapping(value = "saveProperty", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean addProperty(@RequestParam(value = "applicationName") String applicationName, @RequestParam(value = "key") String key, @RequestParam(value = "value") String value) {
+        return localSettingService.addProperty(applicationName, key, value);
+    }
+
+    @RequestMapping(value = "updateProperty", method = RequestMethod.POST)
+    public void updateProperty(@RequestParam(value = "applicationName") String applicationName, @RequestParam(value = "key") String key, @RequestParam(value = "value") String value) {
+        localSettingService.updateProperty(applicationName, key, value);
+    }
+
+    @RequestMapping(value = "deleteProperty", method = RequestMethod.DELETE)
+    public void deleteProperty(@RequestParam(value = "applicationName") String applicationName, @RequestParam(value = "key") String key) {
+        localSettingService.deleteProperty(applicationName, key);
+    }
+
+    @RequestMapping(value = "saveApplication", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean addApplication(@RequestParam(value = "applicationName") String applicationName, @RequestParam(value = "description") String description) {
+        return localSettingService.addApplication(applicationName, description);
+    }
+
+    @RequestMapping(value = "fetchApplications", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Application> getApplications() {
+        return localSettingService.getApplications();
+    }
+
+    @RequestMapping(value = "deleteApplication", method = RequestMethod.DELETE)
+    public void deleteApplication(@RequestParam(value = "applicationName") String applicationName) {
+        localSettingService.deleteApplication(applicationName);
+    }
+
+    @RequestMapping(value = "updateApplication", method = RequestMethod.POST)
+    public void updateApplication(@RequestParam(value = "applicationName") String applicationName, @RequestParam(value = "description") String description) {
+        localSettingService.updateApplication(applicationName, description);
+    }
+
+    @RequestMapping(value = "fetchApplication", method = RequestMethod.GET)
+    @ResponseBody
+    public Application getApplication(@RequestParam(value = "applicationName") String applicationName) {
+        return localSettingService.getApplication(applicationName);
+    }
+}

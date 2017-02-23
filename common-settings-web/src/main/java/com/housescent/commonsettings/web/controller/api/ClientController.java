@@ -1,4 +1,4 @@
-package com.housescent.commonsettings.web.controller;
+package com.housescent.commonsettings.web.controller.api;
 
 import com.housescent.commonsettings.service.remote.SettingService;
 import org.springframework.web.bind.annotation.*;
