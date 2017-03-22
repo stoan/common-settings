@@ -29,7 +29,7 @@ public class SettingServiceImpl implements SettingService, LocalSettingService {
 
     @Override
     public String getPropertyValue(String applicationName, String key) {
-        Property property = propertyRepository.findByApplication_applicationNameAndKey(applicationName, key);
+        Property property = propertyRepository.findByApplication_applicationNameAndKeyIgnoreCase(applicationName, key);
 
         if (property != null) {
             return property.getValue();
@@ -40,7 +40,7 @@ public class SettingServiceImpl implements SettingService, LocalSettingService {
 
     @Override
     public Map<String, String> getPropertiesForApplicationAsMap(String applicationName) {
-        List<Property> props = propertyRepository.findByApplication_applicationName(applicationName);
+        List<Property> props = propertyRepository.findByApplication_applicationNameIgnoreCase(applicationName);
 
         Map<String, String> properties = new HashMap<>();
         for (Property prop : props) {
@@ -51,18 +51,18 @@ public class SettingServiceImpl implements SettingService, LocalSettingService {
 
     @Override
     public List<Property> getPropertiesForApplication(String applicationName) {
-        return propertyRepository.findByApplication_applicationName(applicationName);
+        return propertyRepository.findByApplication_applicationNameIgnoreCase(applicationName);
     }
 
     @Override
     public Application getApplication(String applicationName) {
-        return applicationRepository.findByApplicationName(applicationName);
+        return applicationRepository.findByApplicationNameIgnoreCase(applicationName);
     }
 
     @Override
     @Transactional
     public boolean addProperty(String applicationName, String key, String value) {
-        Application application = applicationRepository.findByApplicationName(applicationName);
+        Application application = applicationRepository.findByApplicationNameIgnoreCase(applicationName);
 
         if (application == null) {
             application = applicationRepository.save(new Application(applicationName, applicationName));
@@ -76,13 +76,13 @@ public class SettingServiceImpl implements SettingService, LocalSettingService {
     @Override
     @Transactional
     public void updateProperty(String applicationName, String key, String value) {
-        Property property = propertyRepository.findByApplication_applicationNameAndKey(applicationName, key);
+        Property property = propertyRepository.findByApplication_applicationNameAndKeyIgnoreCase(applicationName, key);
         property.setValue(value);
     }
 
     @Override
     public void deleteProperty(String applicationName, String key) {
-        Property property = propertyRepository.findByApplication_applicationNameAndKey(applicationName, key);
+        Property property = propertyRepository.findByApplication_applicationNameAndKeyIgnoreCase(applicationName, key);
         if (property != null) {
             propertyRepository.delete(property);
         }
@@ -103,7 +103,7 @@ public class SettingServiceImpl implements SettingService, LocalSettingService {
 
     @Override
     public void deleteApplication(String applicationName) {
-        Application application = applicationRepository.findByApplicationName(applicationName);
+        Application application = applicationRepository.findByApplicationNameIgnoreCase(applicationName);
         if (application != null) {
             applicationRepository.delete(application);
         }
@@ -112,7 +112,7 @@ public class SettingServiceImpl implements SettingService, LocalSettingService {
     @Override
     @Transactional
     public void updateApplication(String applicationName, String description) {
-        Application application = applicationRepository.findByApplicationName(applicationName);
+        Application application = applicationRepository.findByApplicationNameIgnoreCase(applicationName);
         application.setDescription(description);
     }
 }

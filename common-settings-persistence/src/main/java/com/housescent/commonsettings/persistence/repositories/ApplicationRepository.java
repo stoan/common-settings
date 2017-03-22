@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ApplicationRepository extends JpaRepository<Application, Long> {
 
-    Application findByApplicationName(String applicationName);
+    Application findByApplicationNameIgnoreCase(String applicationName);
 }
