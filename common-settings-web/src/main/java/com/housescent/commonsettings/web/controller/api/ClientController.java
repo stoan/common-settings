@@ -19,17 +19,13 @@ public class ClientController {
     }
 
     @RequestMapping(value = "fetchValue", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    String getProperty(@RequestParam(value = "applicationName") String applicationName, @RequestParam(value = "key") String key) {
+    public String getProperty(@RequestParam(value = "applicationName") String applicationName, @RequestParam(value = "key") String key) {
         String value = settingService.getPropertyValue(applicationName, key);
         return value;
     }
 
     @RequestMapping(value = "fetchProperties", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    Map<String, String> getSettings(@RequestParam(value = "applicationName") String applicationName) {
+    public Map<String, String> getSettings(@RequestParam(value = "applicationName") String applicationName) {
         Map<String, String> propertiesForApplicationAsMap = settingService.getPropertiesForApplicationAsMap(applicationName);
         return propertiesForApplicationAsMap;
     }

@@ -14,22 +14,20 @@ import java.util.List;
  * Created by Siya Sosibo on 13/03/2017.
  */
 @Controller
-public class LocalServiceController {
+public class ServiceController {
 
     private LocalSettingService localSettingService;
 
-    public LocalServiceController(LocalSettingService localSettingService) {
+    public ServiceController(LocalSettingService localSettingService) {
         this.localSettingService = localSettingService;
     }
 
     @RequestMapping(value = "fetchPropertiesForApplication", method = RequestMethod.GET)
-
     public List<Property> getPropertiesForApplication(@RequestParam(value = "applicationName") String applicationName) {
         return localSettingService.getPropertiesForApplication(applicationName);
     }
 
     @RequestMapping(value = "saveProperty", method = RequestMethod.POST)
-
     public boolean addProperty(@RequestParam(value = "applicationName") String applicationName, @RequestParam(value = "key") String key, @RequestParam(value = "value") String value) {
         return localSettingService.addProperty(applicationName, key, value);
     }
@@ -45,13 +43,11 @@ public class LocalServiceController {
     }
 
     @RequestMapping(value = "saveApplication", method = RequestMethod.POST)
-
     public boolean addApplication(@RequestParam(value = "applicationName") String applicationName, @RequestParam(value = "description") String description) {
         return localSettingService.addApplication(applicationName, description);
     }
 
     @RequestMapping(value = "fetchApplications", method = RequestMethod.GET)
-
     public List<Application> getApplications() {
         return localSettingService.getApplications();
     }

@@ -21,13 +21,11 @@ public class LocalServiceController {
     }
 
     @RequestMapping(value = "fetchPropertiesForApplication", method = RequestMethod.GET)
-    @ResponseBody
     public List<Property> getPropertiesForApplication(@RequestParam(value = "applicationName") String applicationName) {
         return localSettingService.getPropertiesForApplication(applicationName);
     }
 
     @RequestMapping(value = "saveProperty", method = RequestMethod.POST)
-    @ResponseBody
     public boolean addProperty(@RequestParam(value = "applicationName") String applicationName, @RequestParam(value = "key") String key, @RequestParam(value = "value") String value) {
         return localSettingService.addProperty(applicationName, key, value);
     }
@@ -43,13 +41,11 @@ public class LocalServiceController {
     }
 
     @RequestMapping(value = "saveApplication", method = RequestMethod.POST)
-    @ResponseBody
     public boolean addApplication(@RequestParam(value = "applicationName") String applicationName, @RequestParam(value = "description") String description) {
         return localSettingService.addApplication(applicationName, description);
     }
 
     @RequestMapping(value = "fetchApplications", method = RequestMethod.GET)
-    @ResponseBody
     public List<Application> getApplications() {
         return localSettingService.getApplications();
     }
@@ -65,7 +61,6 @@ public class LocalServiceController {
     }
 
     @RequestMapping(value = "fetchApplication", method = RequestMethod.GET)
-    @ResponseBody
     public Application getApplication(@RequestParam(value = "applicationName") String applicationName) {
         return localSettingService.getApplication(applicationName);
     }
