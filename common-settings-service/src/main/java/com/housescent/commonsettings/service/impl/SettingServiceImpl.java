@@ -1,5 +1,6 @@
 package com.housescent.commonsettings.service.impl;
 
+import com.housescent.commonsettings.service.exception.SettingNotFound;
 import com.housescent.commonsettings.persistence.entities.Application;
 import com.housescent.commonsettings.persistence.entities.Property;
 import com.housescent.commonsettings.persistence.repositories.ApplicationRepository;
@@ -34,7 +35,7 @@ public class SettingServiceImpl implements SettingService, LocalSettingService {
         if (property != null) {
             return property.getValue();
         } else {
-            return null;
+            throw new SettingNotFound("Key not found");
         }
     }
 
