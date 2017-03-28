@@ -8,25 +8,25 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
-public class SettingNotFound extends RuntimeException {
+public class SettingNotFoundException extends SettingException {
 
-    public SettingNotFound() {
+    public SettingNotFoundException() {
         super();
     }
 
-    public SettingNotFound(String message) {
+    public SettingNotFoundException(String message) {
         super(message);
     }
 
-    public SettingNotFound(String message, Throwable cause) {
+    public SettingNotFoundException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public SettingNotFound(Throwable cause) {
+    public SettingNotFoundException(Throwable cause) {
         super(cause);
     }
 
-    protected SettingNotFound(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    protected SettingNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }
