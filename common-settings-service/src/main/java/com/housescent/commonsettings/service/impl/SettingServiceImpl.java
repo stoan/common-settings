@@ -23,7 +23,6 @@ public class SettingServiceImpl implements SettingService, LocalSettingService {
 
     public static final String PROPERTY_NOT_FOUND = "Property not found";
     public static final String APPLICATION_NOT_FOUND = "Application not found";
-    public static final String KEY_OR_APPLICATION_NOT_FOUND = "Property or Application not found";
     public static final String APPLICATION_ALREADY_EXISTS = "Application already exists";
     public static final String PROPERTY_ALREADY_EXIST = "Property already exist";
 
