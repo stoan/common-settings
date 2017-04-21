@@ -1,40 +1,33 @@
 package com.housescent.commonsettings.web.controller.api;
 
+import io.restassured.RestAssured;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.restdocs.JUnitRestDocumentation;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
+import org.junit.runner.RunWith;
+import org.springframework.boot.context.embedded.LocalServerPort;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
+import static io.restassured.RestAssured.given;
 
 /**
- * Created by ADMIN on 2017/03/01.
+ * Created by Siya Sosibo on 2017/03/01.
  */
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ClientControllerTest {
 
-    @Rule
-    public JUnitRestDocumentation restDocumentation =
-            new JUnitRestDocumentation("target/generated-snippets");
-
-    private MockMvc mockMvc;
-
-    @Autowired
-    private WebApplicationContext context;
+    @LocalServerPort
+    int port;
 
     @Before
-    public void setUp() {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.context)
-                .apply(documentationConfiguration(this.restDocumentation))
-                .build();
+    public void setUp() throws Exception {
+        RestAssured.basePath = "/settings/";
     }
 
     @Test
     public void getProperty() throws Exception {
-
+        given().port(port).get("fetchValue?applicationName=TestAppName&key=key1/").then().statusCode(200);
     }
 
     @Test
