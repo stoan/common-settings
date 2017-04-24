@@ -51,4 +51,12 @@ public class Application extends BaseEntity implements Serializable {
     public int hashCode() {
         return Objects.hash(applicationName);
     }
+
+    @Override
+    public String toString() {
+        return "Application{" +
+                "applicationName='" + applicationName + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

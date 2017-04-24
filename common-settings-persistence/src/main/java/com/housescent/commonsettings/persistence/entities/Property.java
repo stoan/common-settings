@@ -69,4 +69,13 @@ public class Property extends BaseEntity implements Serializable {
     public int hashCode() {
         return Objects.hash(key, value, application);
     }
+
+    @Override
+    public String toString() {
+        return "Property{" +
+                "key='" + key + '\'' +
+                ", value='" + value + '\'' +
+                ", application=" + application +
+                '}';
+    }
 }

@@ -27,7 +27,7 @@ public class ClientControllerTest {
 
     @Test
     public void getProperty() throws Exception {
-        given().port(port).get("fetchValue?applicationName=TestAppName&key=key1/").then().statusCode(200);
+        given().log().ifValidationFails().port(port).get("fetchValue?applicationName=TestAppName&key=key1").then().log().ifValidationFails().statusCode(200);
     }
 
     @Test

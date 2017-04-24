@@ -53,7 +53,7 @@ public class LocalServiceControllerTest {
 
     @Test
     public void getApplications() throws Exception {
-        given().log().all().port(port).when().get("fetchApplications").then().log().body().statusCode(200);
+        given().log().ifValidationFails().port(port).when().get("fetchApplications").then().log().ifValidationFails().statusCode(200);
     }
 
     @Test
