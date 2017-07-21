@@ -26,6 +26,6 @@ This service is implemented using Spring Framework and more
 ## Roadmap
 ### To be implemented
 
-* Expose service via REST
+* ~~Expose service via REST~~
 * Add UI front-End (e.g. AngularJS)
 * Add Security (e.g. Spring Security)
