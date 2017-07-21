@@ -17,7 +17,7 @@ With this solution all the application configurations (runtime) are store in a d
 
 
 This service is implemented using Spring Framework and more
-* SpringBoot
+* Spring Boot
 * Spring Data 
 * Spring MVC
 * H2 Database (can be easily adapted to your preferred database(MySQL, Oracle, SQL Server, PostgresSQL etc))
