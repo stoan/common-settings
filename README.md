@@ -21,7 +21,7 @@ This service is implemented using Spring Framework and more
 * Spring Data 
 * Spring MVC
 * H2 Database (can be easily adapted to your preferred database(MySQL, Oracle, SQL Server, PostgresSQL etc))
-* Wildfly 10
+* Tested on Wildfly 10
 
 ## Roadmap
 ### To be implemented
